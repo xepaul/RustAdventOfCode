@@ -74,7 +74,7 @@ mod day8 {
 }
 
 mod day8parsing {
-  use crate::day8_problems::day8::*;
+  use crate::aoc2020::day8_problems::day8::*;
 
   fn parse_instruction_op(operand: i32, s: &str) -> Instruction {
     match s {
