@@ -15,7 +15,7 @@ pub mod aocCommon {
       };
       let mut d = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
       format!(
-          "{}/resources/aoc2020/Day{}_Data{}.txt",
+          "{}/src/aoc2020/data/Day{}_Data{}.txt",
           d.display(),day, filename_suffix
       )
   }
