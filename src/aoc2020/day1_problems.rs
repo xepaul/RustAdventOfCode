@@ -33,8 +33,9 @@ mod day1 {
 
 #[cfg(test)]
 mod day1_tests {
+  use crate::aoc2020::aoc1::aocCommon::AocDay::Day1;
   use crate::aoc2020::aoc1::aocCommon::*;
-  use crate::aoc2020::aoc1::aocCommon::{AocDay::{Day1}};
+  use crate::aoc2020::aoc1::aocCommonFile::*;
   use crate::aoc2020::day1_problems::day1::*;
   #[test]
   fn test_2_numbers_problem_with_sample() {
@@ -52,15 +53,38 @@ mod day1_tests {
 
   #[test]
   fn test_2_numbers_problem_with_data_file() {
-    fn parse_data() -> Vec<i32> {
-      let s: Vec<_> = load_input_lines(AocYear::Aoc2020,Day1, DataFileType::Data)
+    fn process_file() -> Result<i32, &'static str> {
+      let input: Vec<_> = load_input_lines(AocYear::Aoc2020, Day1, DataFileType::Data)
         .lines()
         .map(|x| x.parse::<i32>().unwrap())
         .collect();
-      return s;
+      prob_2numbers(input)
     }
-    let input = parse_data();
-    let result = prob_2numbers(input);
+
+    let result = process_file();
     assert_eq!(result, Ok(877971));
+  }
+}
+
+#[cfg(test)]
+mod day1Async_tests {
+  use crate::aoc2020::aoc1::aocCommon::AocDay::Day1;
+  use crate::aoc2020::aoc1::aocCommon::*;
+  use crate::aoc2020::aoc1::aocCommonFileAsync::*;
+  use crate::aoc2020::day1_problems::day1::*;
+
+  #[actix_rt::test]
+  async fn test_2_numbers_problem_with_data_file_async() {
+    async fn process_file() -> Result<i32, &'static str> {
+      let file_content = load_input_lines_async(AocYear::Aoc2020, Day1, DataFileType::Data)
+        .await
+        .map_err(|_x| "file load failed")?;
+      let input: Vec<_> = file_content
+        .lines()
+        .map(|x| x.parse::<i32>().unwrap())
+        .collect();
+      prob_2numbers(input)
+    }
+    assert_eq!(process_file().await, Ok(877971));
   }
 }
