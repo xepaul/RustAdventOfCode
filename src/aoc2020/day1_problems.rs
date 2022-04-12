@@ -34,6 +34,7 @@ mod day1 {
 #[cfg(test)]
 mod day1_tests {
   use crate::aoc2020::aoc1::aocCommon::*;
+  use crate::aoc2020::aoc1::aocCommon::{AocDay::{Day1}};
   use crate::aoc2020::day1_problems::day1::*;
   #[test]
   fn test_2_numbers_problem_with_sample() {
@@ -52,7 +53,7 @@ mod day1_tests {
   #[test]
   fn test_2_numbers_problem_with_data_file() {
     fn parse_data() -> Vec<i32> {
-      let s: Vec<_> = load_input_lines(1, DataFileType::Data)
+      let s: Vec<_> = load_input_lines(AocYear::Aoc2020,Day1, DataFileType::Data)
         .lines()
         .map(|x| x.parse::<i32>().unwrap())
         .collect();
