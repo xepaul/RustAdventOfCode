@@ -98,21 +98,21 @@ mod day5_tests {
 
     #[test]
     fn test_prob1_with_sample_file() {
-        let input = load_input_lines(5, DataFileType::SampleData);
+        let input = load_input_lines(AocYear::Aoc2020,AocDay::Day5, DataFileType::SampleData);
         let result = prob1_from_string(&input);
         assert_eq!(result, Some(820));
     }
 
     #[test]
     fn test_prob1_with_data_file() {
-        let input = load_input_lines(5, DataFileType::Data);
+        let input = load_input_lines(AocYear::Aoc2020,AocDay::Day5, DataFileType::Data);
         let result = prob1_from_string(&input);
         assert_eq!(result, Some(998));
     }
 
     #[test]
     fn test_prob2_with_data_file() {
-        let input = load_input_lines(5, DataFileType::Data);
+        let input = load_input_lines(AocYear::Aoc2020,AocDay::Day5, DataFileType::Data);
         let result = prob2_from_string(&input);
         assert_eq!(result, Some(676));
     }
@@ -125,7 +125,7 @@ mod day5_prob2_tests {
 
     #[test]
     fn test_prob2_with_data_file() {
-        let input = load_input_lines(5, DataFileType::Data);
+        let input = load_input_lines(AocYear::Aoc2020,AocDay::Day5, DataFileType::Data);
         let result = prob2_from_string(&input);
         assert_eq!(result, Some(676));
     }
