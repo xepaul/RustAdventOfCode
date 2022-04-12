@@ -46,6 +46,7 @@ mod day5 {
 mod day5_tests {
     use crate::aoc2020::aoc1::aocCommon::*;
     use crate::aoc2020::day5_problems::day5::*;
+    use crate::aoc2020::aoc1::aocCommonFile::*;
 
     #[test]
     fn test_char_with_sample() {
@@ -122,6 +123,7 @@ mod day5_tests {
 mod day5_prob2_tests {
     use crate::aoc2020::aoc1::aocCommon::*;
     use crate::aoc2020::day5_problems::day5::*;
+    use crate::aoc2020::aoc1::aocCommonFile::*;
 
     #[test]
     fn test_prob2_with_data_file() {

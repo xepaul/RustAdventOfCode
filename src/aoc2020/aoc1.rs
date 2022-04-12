@@ -1,6 +1,6 @@
 pub mod aocCommon {
 
-  use std::path::PathBuf;
+  
 
   #[derive(Copy, Clone)]
   pub enum AocYear {
@@ -20,6 +20,8 @@ pub mod aocCommon {
     SampleData,
     Debug,
   }
+  use std::path::PathBuf;
+  
   pub fn get_data_file_path(year: AocYear, day: AocDay, datafile_type: DataFileType) -> String {
     let filename_suffix = match datafile_type {
       DataFileType::Data => "",
@@ -44,9 +46,22 @@ pub mod aocCommon {
       filename_suffix
     )
   }
+}
+pub mod aocCommonFile {
+  use crate::aoc2020::aoc1::aocCommon::*;
 
   pub fn load_input_lines(year: AocYear, day: AocDay, datafile_type: DataFileType) -> String {
     let file_path = get_data_file_path(year, day, datafile_type);
     std::fs::read_to_string(file_path).unwrap()
+  }
+}
+pub mod aocCommonFileAsync {
+  use crate::aoc2020::aoc1::aocCommon::*;
+
+  use async_std::fs;
+  pub async fn load_input_lines_async(year: AocYear, day: AocDay, datafile_type: DataFileType) -> Result<String, std::io::Error> {
+    let file_path = get_data_file_path(year, day, datafile_type);
+    let xx= fs::read_to_string(file_path).await?;
+    Ok(xx)
   }
 }
