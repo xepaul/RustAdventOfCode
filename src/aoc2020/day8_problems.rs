@@ -88,10 +88,7 @@ mod day8parsing {
   pub fn parse_instruction(s: &str) -> Instruction {
     let parts = s.split_whitespace().collect::<Vec<&str>>();
     let sign_multiplier = if parts[1].starts_with('-') { -1 } else { 1 };
-    let operand = {
-      let numb_string = &parts[1][1..];
-      sign_multiplier * (numb_string.parse::<i32>().unwrap())
-    };
+    let operand = parts[1].parse().unwrap();
     parse_instruction_op(operand, parts[0])
   }
 
@@ -157,6 +154,13 @@ mod day8_tests {
     let input = "nop +0";
     let result = parse_instruction(input);
     assert_eq!(result, Instruction::Nop(0));
+  }
+
+  #[test]
+  fn test_char_with_sample_line2_negative() {
+    let input = "nop -1";
+    let result = parse_instruction(input);
+    assert_eq!(result, Instruction::Nop(-1));
   }
 
   #[test]

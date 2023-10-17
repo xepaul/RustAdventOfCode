@@ -67,7 +67,7 @@ mod day1_tests {
 }
 
 #[cfg(test)]
-mod day1Async_tests {
+mod day1_async_tests {
   use crate::aoc2020::aoc1::aocCommon::AocDay::Day1;
   use crate::aoc2020::aoc1::aocCommon::*;
   use crate::aoc2020::aoc1::aocCommonFileAsync::*;
