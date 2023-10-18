@@ -16,3 +16,4 @@ Cargo.lock
 .idea/modules.xml
 .idea/RustAdventOfCode.iml
 .idea/vcs.xml
+.DS_Store
