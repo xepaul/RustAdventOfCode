@@ -290,7 +290,7 @@ mod day11 {
     }
 }
 #[cfg(test)]
-mod tests {
+mod tests_quickcheck {
     use super::day11::*;
     use quickcheck_macros::quickcheck;
 
