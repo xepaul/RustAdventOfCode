@@ -6,7 +6,9 @@ mod aoc2020{
   mod day8_problems;
 }
 
-
+mod aoc2022{
+  mod day11_problems;
+}
 
 fn main() {
     println!("Hello, world!");
