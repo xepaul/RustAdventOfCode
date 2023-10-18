@@ -1,4 +1,3 @@
-
 #[allow(dead_code)]
 mod day5 {
 
@@ -26,18 +25,18 @@ mod day5 {
     }
 
     pub fn prob2_from_string(s: &str) -> Option<i32> {
-        let xx =s.lines()
+        let xx = s
+            .lines()
             .map(|x| x.chars().collect::<Vec<char>>())
             .map(|x| process_line(x.to_vec()))
             .collect::<Vec<i32>>();
-        
-        for n in 8 .. (1 << 10)-8
-        {
-            let i = n as i32;            
-            if xx.contains(&(i-1)) && !xx.contains(&i) && xx.contains(&(i+1)) {
+
+        for n in 8..(1 << 10) - 8 {
+            let i = n as i32;
+            if xx.contains(&(i - 1)) && !xx.contains(&i) && xx.contains(&(i + 1)) {
                 return Some(n as i32);
             }
-        }             
+        }
         None
     }
 }
@@ -45,8 +44,8 @@ mod day5 {
 #[cfg(test)]
 mod day5_tests {
     use crate::aoc2020::aoc1::aocCommon::*;
-    use crate::aoc2020::day5_problems::day5::*;
     use crate::aoc2020::aoc1::aocCommonFile::*;
+    use crate::aoc2020::day5_problems::day5::*;
 
     #[test]
     fn test_char_with_sample() {
@@ -99,21 +98,21 @@ mod day5_tests {
 
     #[test]
     fn test_prob1_with_sample_file() {
-        let input = load_input_lines(AocYear::Aoc2020,AocDay::Day5, DataFileType::SampleData);
+        let input = load_input_lines(AocYear::Aoc2020, AocDay::Day5, DataFileType::SampleData);
         let result = prob1_from_string(&input);
         assert_eq!(result, Some(820));
     }
 
     #[test]
     fn test_prob1_with_data_file() {
-        let input = load_input_lines(AocYear::Aoc2020,AocDay::Day5, DataFileType::Data);
+        let input = load_input_lines(AocYear::Aoc2020, AocDay::Day5, DataFileType::Data);
         let result = prob1_from_string(&input);
         assert_eq!(result, Some(998));
     }
 
     #[test]
     fn test_prob2_with_data_file() {
-        let input = load_input_lines(AocYear::Aoc2020,AocDay::Day5, DataFileType::Data);
+        let input = load_input_lines(AocYear::Aoc2020, AocDay::Day5, DataFileType::Data);
         let result = prob2_from_string(&input);
         assert_eq!(result, Some(676));
     }
@@ -122,12 +121,12 @@ mod day5_tests {
 #[cfg(test)]
 mod day5_prob2_tests {
     use crate::aoc2020::aoc1::aocCommon::*;
-    use crate::aoc2020::day5_problems::day5::*;
     use crate::aoc2020::aoc1::aocCommonFile::*;
+    use crate::aoc2020::day5_problems::day5::*;
 
     #[test]
     fn test_prob2_with_data_file() {
-        let input = load_input_lines(AocYear::Aoc2020,AocDay::Day5, DataFileType::Data);
+        let input = load_input_lines(AocYear::Aoc2020, AocDay::Day5, DataFileType::Data);
         let result = prob2_from_string(&input);
         assert_eq!(result, Some(676));
     }
